@@ -1,0 +1,6 @@
+{
+  "domain":"https://native-dev-scrum-42-1535030459-wso2is-sit.cpaas-accenture.com",
+  "body": "grant_type=password&username=dir/orgdma01@cpaas.test@cpaas.test&password=Accenture.1&scope=PRODUCTION",
+  "Authorization": "Basic U0FyU0VqZzR6Ynpvc01mRmVYVkZ3dE40SEhzYTo5T0M3cEt3aTlxMFpNaTlwOG93dVpiY2ZFZzhh"
+
+}

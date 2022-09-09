@@ -1,0 +1,145 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+
+        <div class="card-header">
+          Pipe
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-3">
+              <div class="nav flex-column nav-pills" id="v-pills-tab"
+                role="tablist" aria-orientation="vertical">
+
+                <a class="nav-link active" id="v-pills-child-input-tab"
+                  data-toggle="pill" href="#v-pills-child-input"
+                  role="tab"
+                  aria-controls="v-pills-child-input" aria-selected="true">Child
+                  component with @Input()
+                </a>
+
+                <a class="nav-link" id="v-pills-child-output-tab"
+                  data-toggle="pill"
+                  href="#v-pills-child-output" role="tab"
+                  aria-controls="v-pills-child-output" aria-selected="false">Child
+                  component with @Output()
+                </a>
+
+                <a class="nav-link" id="v-pills-input-output-together-tab"
+                  data-toggle="pill"
+                  href="#v-pills-input-output-together" role="tab"
+                  aria-controls="v-pills-input-output-together"
+                  aria-selected="false">
+                  Input and Output together
+                </a>
+
+                <a class="nav-link" id="v-pills-input-output-class-metadata-tab"
+                  data-toggle="pill"
+                  href="#v-pills-input-output-class-metadata" role="tab"
+                  aria-controls="v-pills-input-output-class-metadata"
+                  aria-selected="false">
+                  Input and Output in the component class metadata
+                </a>
+
+                <a class="nav-link"
+                  id="v-pills-input-output-alisiang-tab"
+                  data-toggle="pill"
+                  href="#v-pills-input-output-alisiang"
+                  role="tab"
+                  aria-controls="v-pills-input-output-alisiang"
+                  aria-selected="false">
+                  Aliasing Inputs and Outputs
+                </a>
+
+
+              </div>
+            </div>
+            <div class="col-9">
+              <div class="tab-content" id="v-pills-tabContent">
+                <!-- INPUT-->
+                <div class="tab-pane fade show active" id="v-pills-child-input"
+                  role="tabpanel"
+                  aria-labelledby="v-pills-child-input-tab">
+                  <app-item-detail [item]="currentItem"></app-item-detail>
+                  <button (click)="value=value + 1">{{value}}</button>
+
+
+                </div>
+
+                <!-- OUTPUT-->
+                <div class="tab-pane fade" id="v-pills-child-output"
+                  role="tabpanel"
+                  aria-labelledby="v-pills-child-output-tab">
+                  <app-item-output (newItemEvent)="addItem($event)"></app-item-output>
+                  <h3>Parent component receiving value via @Output()</h3>
+                  <ul>
+                    <li *ngFor="let item of items">{{item}}</li>
+                  </ul>
+
+                </div>
+
+                <!-- INPUT OUTPUT TOGETHER-->
+                <div class="tab-pane fade" id="v-pills-input-output-together"
+                  role="tabpanel"
+                  aria-labelledby="v-pills-input-output-together-tab">
+                  <h2>Input and Output together</h2>
+                  <p>Open the console to see the EventEmitter at work when you
+                    click Delete.</p>
+                  <app-input-output-together
+                    [item]="currentItem"
+                    (deleteRequest)="crossOffItem($event)">
+                  </app-input-output-together>
+                </div>
+
+                <!-- INPUT OUTPUT TOGETHER METADATA-->
+                <div class="tab-pane fade"
+                  id="v-pills-input-output-class-metadata"
+                  role="tabpanel"
+                  aria-labelledby="v-pills-input-output-class-metadata-tab">
+                  <h2>Input and Output in the component class metadata</h2>
+                  <p>Open the console to see the EventEmitter at work when you
+                    click Buy.</p>
+
+                  <app-in-the-metadata
+                    [clearanceItem]="lastChanceItem"
+                    (buyEvent)="buyClearanceItem($event)">
+                  </app-in-the-metadata>
+                </div>
+
+
+                <!-- Aliasing Inputs and Outputs-->
+                <div class="tab-pane fade"
+                  id="v-pills-input-output-alisiang"
+                  role="tabpanel"
+                  aria-labelledby="v-pills-input-output-alisiang-tab">
+                  <h2>Aliasing Inputs and Outputs</h2>
+                  <p>See aliasing.component.ts for aliases and the console for
+                    the EventEmitter console logs.</p>
+
+                  <app-aliasing
+                    [saveForLaterItem]="currentItem"
+                    [wishListItem]="currentItem"
+                    (saveForLaterEvent)="saveForLater($event)"
+                    (wishEvent)="addToWishList($event)">
+                  </app-aliasing>
+
+                  <h2>Wishlist:</h2>
+                  <ul>
+                    <li *ngFor="let wish of wishlist">{{wish}}</li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-footer">
+
+        </div>
+      </div>
+    </div>
+
+
+  </div>

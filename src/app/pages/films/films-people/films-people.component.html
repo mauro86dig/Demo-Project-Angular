@@ -1,0 +1,42 @@
+<div *ngIf="people" class="container">
+  <div class="row mt-4">
+    <div class="col-md-4">
+      <button class="btn btn-outline-secondary mr-3"
+        style="width:80px"
+        [routerLink]="['/films']"
+        queryParamsHandling="preserve">
+        <i class="fa fa-chevron-left"></i> Back
+      </button>
+
+    </div>
+  </div>
+  <div class="row">
+    <div *ngFor="let person of people" class="col-lg-4">
+      <div class="card mt-5">
+        <div class="card-header">
+          {{person.name}}
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-12">
+              <div class="row">
+                <!-- <div class="col-md-3">Name:</div> -->
+                <div class="col-12">{{person.name}}</div>
+                <div class="col-6">{{person.gender}}</div>
+                <div class="col-6">{{person.age}}</div>
+                <div class="col-12"> eye color: {{person.eye_color}}</div>
+                <div class="col-12">hair color:{{person.hair_color}}</div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,37 @@
+
+<table *ngIf="films" class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Director</th>
+      <th scope="col">Producer</th>
+      <th scope="col">People</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let film of films; let i= index" id={{film.id}}>
+      <th scope="row">{{i}}</th>
+      <img *ngIf="showImage && film.image"
+        [src]="film.image"
+        [title]="film.title"
+        [style.width.px]="imageWidth"
+        [style.margin.px]="imageMargin">
+      <td><a [routerLink]="['/films',film.id]">{{film.title}}</a></td>
+      <td>{{film.director}}</td>
+      <td>{{film.producer}}</td>
+      <td><button (click)="showsDetailsPeople(film)" class="btn"><i class="bi bi-people-fill"></i></button></td>
+      <!-- <td><button [routerLink]="['/films/people']" class="btn"><i class="bi bi-people-fill"></i></button></td> -->
+    </tr>
+
+  </tbody>
+</table>
+
+
+
+
+<!-- <pre
+  class="rounded"><code class="json" [highlight]="responseJson">
+  </code>
+</pre> -->
